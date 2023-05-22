@@ -1,15 +1,8 @@
-import {
-  css,
-  customElement,
-  html,
-  LitElement,
-  property,
-  TemplateResult,
-} from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map';
+import { css, html, LitElement, nothing, TemplateResult } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
+import { property, customElement } from 'lit/decorators.js';
 
 import '@material/mwc-icon';
-import { nothing } from 'lit-html';
 
 function closestTo<E extends Element>(node: Node, selector: string): E | null {
   const closest =
