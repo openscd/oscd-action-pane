@@ -27,7 +27,8 @@
     "deploy": "npm run storybook:build && gh-pages --dist storybook-static"
   },
   "dependencies": {
-    "@material/mwc-icon": "0.22.1",
+    "@material/mwc-icon": "^0.22.1",
+    "lit": "^2.7.4",
     "lit-element": "2.5.1",
     "lit-html": "1.4.1",
     "lit-translate": "^1.2.1"
