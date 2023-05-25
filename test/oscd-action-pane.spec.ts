@@ -22,64 +22,64 @@ describe('oscd-action-pane', () => {
   });
 
   it('renders the header as <h1> per default', () => {
-    expect(element.shadowRoot?.querySelector('h1')).to.exist;
-    expect(element.shadowRoot?.querySelector('h2')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h3')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h4')).to.not.exist;
+    const header: HTMLElement | null =
+      element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;
+    expect(header).to.exist;
+    expect(header?.tagName).to.equal('H1');
   });
 
   it('renders the header as <h1> with level 1', async () => {
     element.level = 1;
     await element.updateComplete;
-    expect(element.shadowRoot?.querySelector('h1')).to.exist;
-    expect(element.shadowRoot?.querySelector('h2')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h3')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h4')).to.not.exist;
+    const header: HTMLElement | null =
+      element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;
+    expect(header).to.exist;
+    expect(header?.tagName).to.equal('H1');
   });
 
   it('renders the header as <h2> with level 2', async () => {
     element.level = 2;
     await element.updateComplete;
-    expect(element.shadowRoot?.querySelector('h2')).to.exist;
-    expect(element.shadowRoot?.querySelector('h1')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h3')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h4')).to.not.exist;
+    const header: HTMLElement | null =
+      element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;
+    expect(header).to.exist;
+    expect(header?.tagName).to.equal('H2');
   });
 
   it('renders the header as <h3> with level 3', async () => {
     element.level = 3;
     await element.updateComplete;
-    expect(element.shadowRoot?.querySelector('h3')).to.exist;
-    expect(element.shadowRoot?.querySelector('h1')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h2')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h4')).to.not.exist;
+    const header: HTMLElement | null =
+      element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;
+    expect(header).to.exist;
+    expect(header?.tagName).to.equal('H3');
   });
 
   it('renders the header as <h4> with level 4', async () => {
     element.level = 4;
     await element.updateComplete;
-    expect(element.shadowRoot?.querySelector('h4')).to.exist;
-    expect(element.shadowRoot?.querySelector('h1')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h2')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h3')).to.not.exist;
+    const header: HTMLElement | null =
+      element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;
+    expect(header).to.exist;
+    expect(header?.tagName).to.equal('H4');
   });
 
   it('renders the header as <h4> for levels > 4', async () => {
     element.level = 7;
     await element.updateComplete;
-    expect(element.shadowRoot?.querySelector('h4')).to.exist;
-    expect(element.shadowRoot?.querySelector('h1')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h2')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h3')).to.not.exist;
+    const header: HTMLElement | null =
+      element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;
+    expect(header).to.exist;
+    expect(header?.tagName).to.equal('H4');
   });
 
   it('renders the header as <h1> for levels < 1', async () => {
     element.level = -1;
     await element.updateComplete;
-    expect(element.shadowRoot?.querySelector('h1')).to.exist;
-    expect(element.shadowRoot?.querySelector('h2')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h3')).to.not.exist;
-    expect(element.shadowRoot?.querySelector('h4')).to.not.exist;
+    const header: HTMLElement | null =
+      element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;
+    expect(header).to.exist;
+    expect(header?.tagName).to.equal('H1');
   });
 
   it('renders the title on the <h1>', async () => {

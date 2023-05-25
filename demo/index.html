@@ -8,11 +8,12 @@
     />
     <style>
       body {
-        --mdc-theme-on-surface: #657b83;
-        --mdc-theme-surface: #fdf6e3;
-        --mdc-theme-primary: #2aa198;
-        --mdc-theme-on-primary: #eee8d5;
-        --mdc-theme-secondary: #6c71c4;
+        --oscd-action-pane-theme-on-surface: #657b83;
+        --oscd-action-pane-theme-surface: #fdf6e3;
+        --oscd-action-pane-theme-primary: #2aa198;
+        --oscd-action-pane-theme-on-primary: #eee8d5;
+        --oscd-action-pane-theme-secondary: #6c71c4;
+        --oscd-action-pane-theme-font: 'Roboto', sans-serif;
         background: white;
       }
     </style>
@@ -39,29 +40,34 @@
           </oscd-action-pane>
           <oscd-action-pane .label=${title} .icon=${icon} highlighted>
             title, icon and always highlighted with dotted lines
-          </oscd-action-pane>
-          <oscd-action-pane
-            .label=${title}
-            .icon=${icon}
-            secondary
-            .level=${level}
-          >
-            title, icon and secondary color highlight when selected and a level
-            below the rest
-          </oscd-action-pane>
-          <oscd-action-pane .label=${title} .icon=${icon} .level=${level + 1}>
-            same as above but 1 level lower and primary color highlight when
-            selected
-          </oscd-action-pane>
-          <oscd-action-pane
-            .label=${title}
-            .icon=${icon}
-            secondary
-            highlighted
-            .level=${level + 2}
-          >
-            same as above but 1 level lower and secondary color highligh when
-            selected and always highlighted with dotted lines
+            <oscd-action-pane
+              .label=${title}
+              .icon=${icon}
+              secondary
+              .level=${level}
+            >
+              title, icon and secondary color highlight when selected and a
+              level below the rest
+
+              <oscd-action-pane
+                .label=${title}
+                .icon=${icon}
+                .level=${level + 1}
+              >
+                same as above but 1 level lower and primary color highlight when
+                selected
+                <oscd-action-pane
+                  .label=${title}
+                  .icon=${icon}
+                  secondary
+                  highlighted
+                  .level=${level + 2}
+                >
+                  same as above but 1 level lower and secondary color highligh
+                  when selected and always highlighted with dotted lines
+                </oscd-action-pane>
+              </oscd-action-pane>
+            </oscd-action-pane>
           </oscd-action-pane>
         `,
 

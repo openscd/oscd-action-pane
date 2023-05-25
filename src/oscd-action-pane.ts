@@ -108,16 +108,25 @@ export class OscdActionPane extends LitElement {
     }
 
     section {
-      background-color: var(--mdc-theme-surface);
+      background-color: var(
+        --oscd-action-pane-theme-surface,
+        var(--oscd-theme-surface)
+      );
       transition: all 200ms linear;
       outline-style: solid;
       margin: 0px;
       outline-width: 0px;
-      outline-color: var(--mdc-theme-primary);
+      outline-color: var(
+        --oscd-action-pane-theme-primary,
+        var(--oscd-theme-primary)
+      );
     }
 
     section.secondary {
-      outline-color: var(--mdc-theme-secondary);
+      outline-color: var(
+        --oscd-action-pane-theme-secondary,
+        var(--oscd-theme-secondary)
+      );
     }
 
     section > div {
@@ -138,15 +147,21 @@ export class OscdActionPane extends LitElement {
     }
 
     .contrasted {
-      background-color: var(--mdc-theme-on-primary);
+      background-color: var(
+        --oscd-action-pane-theme-on-primary,
+        var(--oscd-theme-on-primary)
+      );
     }
 
     h1,
     h2,
     h3,
     h4 {
-      color: var(--mdc-theme-on-surface);
-      font-family: 'Roboto', sans-serif;
+      color: var(
+        --oscd-action-pane-theme-on-surface,
+        var(--oscd-theme-on-surface)
+      );
+      font-family: var(--oscd-action-pane-theme-font, var(--oscd-theme-font));
       font-weight: 300;
       overflow: clip visible;
       white-space: nowrap;

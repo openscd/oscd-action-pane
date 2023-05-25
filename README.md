@@ -60,6 +60,7 @@ To build a production version of Storybook, run
 npm run storybook:build
 ```
 
+
 ## Tooling configs
 
 For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
@@ -74,32 +75,8 @@ npm start
 
 To run a local development server that serves the basic demo located in `demo/index.html`
 
-## `oscd-action-pane.ts`:
 
-### class: `OscdActionPane`
 
-#### Superclass
 
-| Name         | Module | Package |
-| ------------ | ------ | ------- |
-| `LitElement` |        | lit     |
-
-#### Properties/Attributes
-
-| Name          | Type      | Default     | Description                                                    |
-| ------------- | --------- | ----------- | -------------------------------------------------------------- |
-| `label`       | `string`  | `undefined` | Caption text, displayed in the header.                         |
-| `icon`        | `string`  | `undefined` | Icon name, displays icon as described in `@material/mwc-icon`. |
-| `secondary`   | `boolean` | `false`     | Color header with secondary theme color while focus is within. |
-| `highlighted` | `boolean` | `false`     | highlight pane with dotted outline item.                       |
-| `level`       | `number`  | `1`         | nesting level, default (closest pane ancestor's level) + 1     |
-
-<hr/>
-
-### Exports
-
-| Kind | Name               | Declaration      | Module              | Package |
-| ---- | ------------------ | ---------------- | ------------------- | ------- |
-| `js` | `oscd-action-pane` | oscd-action-pane | oscd-action-pane.ts |         |
 
 &copy; 2023 Alliander N.V.
