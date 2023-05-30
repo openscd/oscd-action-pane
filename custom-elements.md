@@ -1,6 +1,6 @@
-# `oscd-component.ts`:
+# `oscd-action-pane.ts`:
 
-## class: `OscdComponent`
+## class: `OscdActionPane`
 
 ### Superclass
 

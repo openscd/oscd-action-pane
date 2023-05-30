@@ -1,14 +1,15 @@
 {
-  "name": "oscd-component",
-  "description": "Webcomponent oscd-component following open-wc recommendations",
+  "name": "@openscd/oscd-action-pane",
+  "description": "Webcomponent oscd-action-pane following open-wc recommendations",
   "license": "Apache-2.0",
+  "author": "Alliander",
   "version": "0.0.0",
-  "type": "module",
-  "main": "dist/oscd-component.js",
-  "module": "dist/oscd-component.js",
+  "main": "dist/src/OscdActionPane.js",
+  "module": "dist/src/OscdActionPane.js",
   "exports": {
-    ".": "./dist/oscd-component.js"
+    ".": "./dist/src/OscdActionPane.js"
   },
+  "type": "module",
   "scripts": {
     "analyze": "cem analyze",
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
@@ -23,10 +24,14 @@
     "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
     "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
     "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook",
-    "deploy": "npm run storybook:build && gh-pages --dist 'storybook-static'"
+    "deploy": "npm run storybook:build && gh-pages --dist storybook-static"
   },
   "dependencies": {
-    "lit": "^2.0.2"
+    "@material/mwc-icon": "^0.22.1",
+    "lit": "^2.7.4",
+    "lit-element": "2.5.1",
+    "lit-html": "1.4.1",
+    "lit-translate": "^1.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
@@ -45,6 +50,8 @@
     "concurrently": "^5.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "gh-pages": "^4.0.0",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
@@ -54,57 +61,11 @@
   },
   "customElements": "custom-elements.json",
   "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
     "extends": [
-      "@open-wc",
-      "prettier"
-    ],
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "rules": {
-      "no-unused-vars": "off",
-      "sort-imports": [
-        "error",
-        {
-          "ignoreCase": true,
-          "allowSeparatedGroups": true
-        }
-      ],
-      "class-methods-use-this": [
-        "error",
-        {
-          "exceptMethods": [
-            "locale"
-          ]
-        }
-      ],
-      "@typescript-eslint/no-explicit-any": [
-        "error",
-        {
-          "ignoreRestArgs": true
-        }
-      ],
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": [
-            "**/*.test.ts",
-            "**/*.spec.ts",
-            "**/*.stories.ts",
-            "**/*.config.js"
-          ]
-        }
-      ],
-      "import/no-unresolved": "off",
-      "import/extensions": [
-        "error",
-        "always",
-        {
-          "ignorePackages": true
-        }
-      ]
-    }
+      "@open-wc/eslint-config",
+      "eslint-config-prettier",
+      "ts-standard"
+    ]
   },
   "prettier": {
     "singleQuote": true,

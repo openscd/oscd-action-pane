@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        --oscd-action-pane-theme-on-surface: #657b83;
+        --oscd-action-pane-theme-surface: #fdf6e3;
+        --oscd-action-pane-theme-primary: #2aa198;
+        --oscd-action-pane-theme-on-primary: #eee8d5;
+        --oscd-action-pane-theme-secondary: #6c71c4;
+        --oscd-action-pane-theme-font: 'Roboto', sans-serif;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo"></div>
+
+    <script type="module">
+      import { html, render, css } from 'lit';
+      import '../dist/src/oscd-action-pane.js';
+      import '@material/mwc-icon';
+
+      const title = 'Click this pane!';
+      const icon = 'shopping_cart';
+      const level = 2;
+
+      const styles = css``;
+
+      render(
+        html`
+          <oscd-action-pane .label=${title}> just a title </oscd-action-pane>
+          <oscd-action-pane .label=${title} .icon=${icon}>
+            tiltle and icon
+          </oscd-action-pane>
+          <oscd-action-pane .label=${title} .icon=${icon} highlighted>
+            title, icon and always highlighted with dotted lines
+            <oscd-action-pane
+              .label=${title}
+              .icon=${icon}
+              secondary
+              .level=${level}
+            >
+              title, icon and secondary color highlight when selected and a
+              level below the rest
+
+              <oscd-action-pane
+                .label=${title}
+                .icon=${icon}
+                .level=${level + 1}
+              >
+                same as above but 1 level lower and primary color highlight when
+                selected
+                <oscd-action-pane
+                  .label=${title}
+                  .icon=${icon}
+                  secondary
+                  highlighted
+                  .level=${level + 2}
+                >
+                  same as above but 1 level lower and secondary color highligh
+                  when selected and always highlighted with dotted lines
+                </oscd-action-pane>
+              </oscd-action-pane>
+            </oscd-action-pane>
+          </oscd-action-pane>
+        `,
+
+        document.querySelector('#demo')
+      );
+    </script>
+  </body>
+</html>
