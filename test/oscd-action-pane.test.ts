@@ -3,8 +3,8 @@ import { html } from 'lit';
 
 import { visualDiff } from '@web/test-runner-visual-regression';
 
-import '../src/oscd-action-pane.js';
-import type { OscdActionPane } from '../src/oscd-action-pane.js';
+import '../src/OscdActionPane.js';
+import type { OscdActionPane } from '../src/OscdActionPane.js';
 
 const factor = process.env.CI ? 2 : 1;
 

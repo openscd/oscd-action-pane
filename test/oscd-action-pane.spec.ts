@@ -1,7 +1,7 @@
 import { expect, fixture, html } from '@open-wc/testing';
 
-import '../src/oscd-action-pane.js';
-import { OscdActionPane } from '../src/oscd-action-pane.js';
+import '../src/OscdActionPane.js';
+import { OscdActionPane } from '../src/OscdActionPane.js';
 
 describe('oscd-action-pane', () => {
   let element: OscdActionPane;
@@ -20,7 +20,6 @@ describe('oscd-action-pane', () => {
   it('looks like the latest snapshot', () => {
     expect(element).shadowDom.to.equalSnapshot();
   });
-
   it('renders the header as <h1> per default', () => {
     const header: HTMLElement | null =
       element.shadowRoot?.querySelector(`[title="${label}"]`) ?? null;

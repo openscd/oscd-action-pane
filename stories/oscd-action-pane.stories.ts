@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit-element';
 import '@material/mwc-icon';
-import '../src/oscd-action-pane.js';
+import '../src/OscdActionPane.js';
 
 export default {
   title: 'OscdActionPane',

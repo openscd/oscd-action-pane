@@ -1,6 +1,6 @@
 import { css, html, LitElement, nothing, TemplateResult } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 
 import '@material/mwc-icon';
 
@@ -20,13 +20,19 @@ function closestTo<E extends Element>(node: Node, selector: string): E | null {
 }
 
 /**
- * A responsive container rendering actions in a header.
+ * @slot action - May contain up to eight icon buttons.
+ * @slot icon - If filled overrides the icon property.
+ * @slot - The default slot will be rendered into the pane body in a single column.
+ * @cssprop [--oscd-action-icon-theme-primary=--oscd-theme-primary] - Color for border on even levels.
+ * @cssprop [--oscd-action-icon-theme-on-primary=--oscd-theme-on-primary] - Pane color for the uneven levels.
+ * @cssprop [--oscd-action-icon-theme-secondary=--oscd-theme-secondary] - Color for border on uneven levels.
+ * @cssprop [--oscd-action-pane-theme-surface=--oscd-theme-surface] - Pane color for the even levels.
+ * @cssprop [--oscd-action-icon-theme-on-surface=--oscd-theme-on-surface] - Icon and label color.
+ * @cssprop [--oscd-action-icon-theme-font=--oscd-theme-font] - Font for label.
  *
- * The "action" slot may contain up to eight icon buttons.
- * The "icon" slot, if filled overrides the icon property.
- * The default slot will be rendered into the pane body in a single column.
+ * @summary A responsive container rendering actions in a header.
+ * @tag oscd-action-pane
  */
-@customElement('oscd-action-pane')
 export class OscdActionPane extends LitElement {
   /** caption text, displayed in the header */
   @property({ type: String })
