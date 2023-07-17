@@ -4,10 +4,13 @@
   "license": "Apache-2.0",
   "author": "Alliander",
   "version": "1.0.0",
-  "main": "dist/src/OscdActionPane.js",
-  "module": "dist/src/OscdActionPane.js",
+  "browser": "dist/OscdActionPane.js",
+  "module": "dist/OscdActionPane.js",
+  "files": [
+    "dist/**/*"
+  ],
   "exports": {
-    ".": "./dist/src/OscdActionPane.js"
+    ".": "./dist/OscdActionPane.js"
   },
   "type": "module",
   "scripts": {
@@ -17,21 +20,20 @@
     "prepublish": "tsc && npm run analyze -- --exclude dist",
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
-    "test": "tsc && wtr --coverage",
-    "test:unit": "tsc && wtr --group default",
-    "test:visual": "tsc && wtr --group visual",
-    "test:update": "tsc && wtr --group visual --update-visual-baseline",
-    "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\"",
-    "storybook": "tsc && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
-    "storybook:build": "tsc && npm run analyze -- --exclude dist && build-storybook",
+    "test": "tsc --p tsconfig.test.json && wtr --coverage",
+    "test:unit": "tsc --p tsconfig.test.json && wtr --group default",
+    "test:visual": "tsc --p tsconfig.test.json && wtr --group visual",
+    "test:update": "tsc --p tsconfig.test.json && wtr --group visual --update-visual-baseline",
+    "test:watch": "tsc --p tsconfig.test.json && concurrently -k -r \"tsc --p tsconfig.test.json --watch --preserveWatchOutput\" \"wtr --watch\"",
+    "storybook": "tsc --p tsconfig.test.json && npm run analyze -- --exclude dist && concurrently -k -r \"tsc --p tsconfig.test.json --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\"",
+    "storybook:build": "tsc --p tsconfig.test.json && npm run analyze -- --exclude dist && build-storybook",
     "deploy": "npm run storybook:build && gh-pages --dist storybook-static"
   },
   "dependencies": {
-    "@material/mwc-icon": "^0.22.1",
+    "@material/mwc-icon": "^0.27.0",
     "lit": "^2.7.4",
     "lit-element": "2.5.1",
-    "lit-html": "1.4.1",
-    "lit-translate": "^1.2.1"
+    "lit-html": "1.4.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
@@ -60,13 +62,6 @@
     "typescript": "^4.5.2"
   },
   "customElements": "custom-elements.json",
-  "eslintConfig": {
-    "extends": [
-      "@open-wc/eslint-config",
-      "eslint-config-prettier",
-      "ts-standard"
-    ]
-  },
   "prettier": {
     "singleQuote": true,
     "arrowParens": "avoid"
