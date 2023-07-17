@@ -3,7 +3,7 @@
   "description": "Webcomponent oscd-action-pane following open-wc recommendations",
   "license": "Apache-2.0",
   "author": "Alliander",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "browser": "dist/OscdActionPane.js",
   "module": "dist/OscdActionPane.js",
   "files": [
